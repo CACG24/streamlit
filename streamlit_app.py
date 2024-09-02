@@ -195,5 +195,17 @@ st.markdown(":violet[**DataFrame** de ganancias por ciudad]")
 st.dataframe(ganancias_id)
 st.subheader('Ganancias por ciudad')
 
+fig3, ax3 = plt.subplots()
+
+datos_interes = ganancias_id[['Ciudad', 'Ganancia']]
+plt.plot(datos_interes['Ciudad'], datos_interes['Ganancia'])
+
+ax3.set_title('Ganancias Mensuales por Persona')
+ax3.set_xlabel(ganan_selected)
+ax3.set_ylabel('Ganancias')
+
+#Renderización del gráfico
+st.pyplot(fig3)
+
 
 
