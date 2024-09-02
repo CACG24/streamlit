@@ -164,6 +164,7 @@ periodo_df = periodo_df.transpose()
 periodo_df = periodo_df.to_frame()
 periodo_df = periodo_df.rename(columns = {1: 'MES'})
 periodo_df = periodo_df.drop(['NOMBRE','APELLIDO','CIUDAD'])
+colum_der.subheader(periodo_df)
 plt.plot(periodo_df)
 ax2.set_title('Ganancias Mensuales por Persona')
 ax2.set_xlabel(ganan_selected)
@@ -194,4 +195,6 @@ st.divider()
 st.markdown(":violet[**DataFrame** de ganancias por ciudad]")
 st.dataframe(ganancias_id)
 colum_der.subheader('Ganancias por ciudad')
+
+
 
