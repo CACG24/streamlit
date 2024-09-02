@@ -192,6 +192,6 @@ st.divider()
 #----- GRÁFICO DE GANANCIAS POR CIUDAD ------------------------
 #Título para el gráfico
 st.markdown(":violet[**DataFrame** de ganancias por ciudad]")
-st.dataframe(datos_df)
+st.dataframe(ganancias_id)
 colum_der.subheader('Ganancias por ciudad')
 
