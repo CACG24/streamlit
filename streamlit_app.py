@@ -195,18 +195,25 @@ st.markdown(":violet[**DataFrame** de ganancias por ciudad]")
 st.dataframe(ganancias_id)
 st.subheader('Ganancias por ciudad')
 
-fig3, ax3 = plt.subplots()
-
+#Datos a graficar
 datos_interes = ganancias_id[['Ciudad', 'Ganancia']]
-plt.plot(datos_interes['Ciudad'], datos_interes['Ganancia'])
 
-ax3.set_title('Ganancias Mensuales por Persona')
-ax3.set_xlabel(ganan_selected)
+#Gráfico de lineas
+fig3, ax3 = plt.subplots()
+plt.plot(datos_interes['Ciudad'], datos_interes['Ganancia'])
+ax3.set_title('Ganancias por ciudad')
+ax3.set_xlabel('Ciudades')
 ax3.set_ylabel('Ganancias')
 plt.xticks(rotation=45)
-
-#Renderización del gráfico
 st.pyplot(fig3)
 
+#Gráfico de barras
+fig4, ax4 = plt.subplots()
+plt.bar(datos_interes['Ciudad'], datos_interes['Ganancia'], color='skyblue')
+ax4.set_title('Ganancias por ciudad')
+ax4.set_xlabel('Ciudades')
+ax4.set_ylabel('Ganancias')
+plt.xticks(rotation=45)
+st.pyplot(fig4)
 
 
