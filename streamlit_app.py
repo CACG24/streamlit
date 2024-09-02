@@ -203,7 +203,7 @@ plt.plot(datos_interes['Ciudad'], datos_interes['Ganancia'])
 ax3.set_title('Ganancias Mensuales por Persona')
 ax3.set_xlabel(ganan_selected)
 ax3.set_ylabel('Ganancias')
-ax3.xticks(rotation=45)
+plt.xticks(rotation=45)
 
 #Renderización del gráfico
 st.pyplot(fig3)
