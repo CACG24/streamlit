@@ -102,7 +102,7 @@ st.markdown(":violet[El **DataFrame** es el siguiente:]")
 #----- Renderizado del DataFrame ----------------------------------
 st.dataframe(datos_df)
 st.divider()
-st.markdown(ganan_selected)
+st.subheader(ganan_selected)
 
 
 #------------------------------------------------------------------
