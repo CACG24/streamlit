@@ -88,6 +88,7 @@ mes_multi_selected = st.sidebar.multiselect('Elementos de la Matriz de Correlaci
 
 #----- Lectura de los Datos Desde el Archivo CSV ------------------
 datos_df = pd.read_csv('./Datos/Datos_DF.csv')
+ganancias_id = pd.read_csv('./Datos/Ganancias_id.csv')
 
 #----- Renderizado del Texto --------------------------------------
 st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE CLIENTES**]")
@@ -186,3 +187,11 @@ sns.heatmap(df_corr, annot = anotacion, fmt='.2f', cmap = color_selected)
 #Renderización del gráfico
 st.pyplot(fig3)
 st.divider()
+
+
+#----- GRÁFICO DE GANANCIAS POR CIUDAD ------------------------
+#Título para el gráfico
+st.markdown(":violet[**DataFrame** de ganancias por ciudad]")
+st.dataframe(datos_df)
+colum_der.subheader('Ganancias por ciudad')
+
