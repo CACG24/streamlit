@@ -118,7 +118,7 @@ datos_df=datos_df.dropna()
 #Creación de columnas con nuevos datos
 datos_df['inicio_del_viaje'] = pd.to_datetime(datos_df['inicio_del_viaje'])
 datos_df['fin_del_viaje'] = pd.to_datetime(datos_df['fin_del_viaje'])
-datos_df['tiempo_total'] = (datos_df['fin_del_viaje'] - datos_df['inicio_del_viaje']
+datos_df['tiempo_total'] = datos_df['fin_del_viaje'] - datos_df['inicio_del_viaje']
 
 #----- Renderizado del Texto --------------------------------------
 st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE CLIENTES**]")
