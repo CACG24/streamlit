@@ -92,8 +92,15 @@ mes_multi_selected = st.sidebar.multiselect('Elementos de la Matriz de Correlaci
 #------------------------------------------------------------------
 
 #----- Lectura de los Datos Desde el Archivo CSV ------------------
-datos_df = pd.read_csv('./Datos/Datos_DF.csv')
-ganancias_id = pd.read_csv('./Datos/Ganancias_id.csv')
+#Inicialización de la Lista
+year2024=[]
+
+#Asignación de los Archivos a la Lista
+for tiempo in range(1, 8+1):
+    year2024.append(pd.read_csv('./Datos/Mi bici/datos_abiertos_2024_0{}.csv'.format(tiempo), index_col=0))
+  
+#Concatenación de los Elementos de la Lista a un DataFrame
+datos_df=pd.concat(year2024) 
 
 #----- Renderizado del Texto --------------------------------------
 st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE CLIENTES**]")
