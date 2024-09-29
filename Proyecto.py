@@ -65,6 +65,5 @@ st.markdown(":blue[*- **Matriz de Correlación** para los Meses Seleccionados de
 st.markdown(":violet[El **DataFrame** es el siguiente:]")
 
 #----- Renderizado del DataFrame ----------------------------------
-st.dataframe(datos_df)
+st.dataframe(datos_df.head(10)
 st.divider()
-st.subheader(ganan_selected)
