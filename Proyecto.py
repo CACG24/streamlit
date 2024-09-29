@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import random
+import math
 from skimage import io
 
 
@@ -21,18 +22,19 @@ from skimage import io
 #----- Configuración Inicial del Panel Central --------------------
 #------------------------------------------------------------------
 
-#----- Lectura de la Imagen ---------------------------------------
+#----- Lectura de Imagenes ----------------------------------------
 Logo = io.imread(r"./Imagenes/ITESO_Logo.png")
 Logo_mibici = io.imread(r"./Imagenes/mibici.jpg")
 
-#----- Renderizado de la Imagen -----------------------------------
+#----- Renderizado de Imagen --------------------------------------
 st.image(Logo, width = 500)
 
 #----- Renderizado del Texto --------------------------------------
 st.title("Proyecto de programación para minería de datos")
 st.subheader(":blue[Se utilizaron datos de la plataforma oficial "
-              "de *mibici* para hacer un analisis de los mismos.]")
+              "de *MiBici* para hacer un analisis de los mismos.]")
 
+#----- Renderizado de Imagen --------------------------------------
 st.image(Logo_mibici, width = 100)
 
 
