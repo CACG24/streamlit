@@ -38,54 +38,6 @@ st.subheader(":blue[Se utilizaron datos de la plataforma oficial "
 st.image(Logo_mibici, width = 100)
 
 
-#------------------------------------------------------------------
-#----- Configuración de los Elementos del DashBoard ---------------
-#------------------------------------------------------------------
-
-#----- Renderizado de la Imagen y el Título en el Dashboard -------
-st.sidebar.image(Logo, width = 200)
-st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
-st.sidebar.divider()
-
-#----- HISTOGRAMA POR MES -----------------------------------------
-#----- Selector del Mes -------------------------------------------
-vars_mes = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC']
-default_hist = vars_mes.index('ENE')
-histo_selected = st.sidebar.selectbox('Elección del Mes para el Histograma:', vars_mes, index = default_hist)
-st.sidebar.divider()
-
-#----- GRÁFICO DE LÍNEAS PARA LAS GANANCIAS -----------------------
-#----- Selector de las Personas -----------------------------------
-vars_per = ['Iñaki González','María Cázares','José García','Jérémie Muñoz','Agnès Villalón','Bérénice Pitkämäki',
-            'Geneviève Rukajärvi','Hélène Ñuñoz','Ñaguí Grönholm','Iván Földváry']
-default_pers = vars_per.index('Iñaki González')
-ganan_selected = st.sidebar.selectbox('Elección de Persona para Mostrar las Ganancias Personales:', vars_per, index = default_pers)
-st.sidebar.divider()
-
-#----- GRÁFICO DE CORRELACIÓN DE LOS MESES ------------------------
-#----- Selector del Mapa de Color ---------------------------------
-vars_cmap = ['viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges',
-             'Reds', 'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn',
-             'YlGn', 'binary', 'gist_yarg', 'gist_gray', 'gray', 'bone', 'pink', 'spring', 'summer', 'autumn', 'winter',
-             'cool', 'Wistia', 'hot', 'afmhot', 'gist_heat', 'copper', 'PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu',
-             'RdYlBu', 'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic', 'twilight', 'twilight_shifted', 'hsv',
-             'Pastel1', 'Pastel2', 'Paired', 'Accent', 'Dark2', 'Set1', 'Set2', 'Set3', 'tab10', 'tab20', 'tab20b',
-             'tab20c', 'flag', 'prism', 'ocean', 'gist_earth', 'terrain', 'gist_stern', 'gnuplot', 'gnuplot2', 'CMRmap',
-             'cubehelix', 'brg', 'gist_rainbow', 'rainbow', 'jet', 'turbo', 'nipy_spectral', 'gist_ncar']
-color_selected = st.sidebar.selectbox('Paleta de Color para la Matriz de Correlación:', vars_cmap)
-if st.sidebar.button('Color Aleatorio') == True:
-    color_selected = random.choice(vars_cmap)
-
-#----- Selector de Valores de Correlación para el Gráfico ---------
-selec_val_corr = st.sidebar.radio("Valores de Correlación:", options = ['Activo', 'Inactivo'])
-if selec_val_corr == 'Activo':
-    anotacion = True
-elif selec_val_corr == 'Inactivo':
-    anotacion = False
-
-#----- Selector de los Meses para el Histograma -------------------
-mes_multi_selected = st.sidebar.multiselect('Elementos de la Matriz de Correlación:', vars_mes, default = vars_mes)
-
 
 #------------------------------------------------------------------
 #----- Configuración de Texto y Elementos del Panel Central -------
