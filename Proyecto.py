@@ -23,6 +23,7 @@ from skimage import io
 
 #----- Lectura de la Imagen ---------------------------------------
 Logo = io.imread(r"./Imagenes/ITESO_Logo.png")
+Logo_mibici = io.imread(r"./Imagenes/mibici.jpg")
 
 #----- Renderizado de la Imagen -----------------------------------
 st.image(Logo, width = 500)
@@ -31,6 +32,8 @@ st.image(Logo, width = 500)
 st.title("Proyecto de programación para minería de datos")
 st.subheader(":blue[Se utilizaron datos de la plataforma oficial "
               "de *mibici* para hacer un analisis de los mismos.]")
+
+st.image(Logo_mibici, width = 500)
 
 
 #------------------------------------------------------------------
