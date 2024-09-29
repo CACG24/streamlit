@@ -49,7 +49,7 @@ year2024=[]
 
 #Asignación de los Archivos a la Lista
 for tiempo in range(1, 8+1):
-    year2024.append(pd.read_csv('./Datos/Mi bici/datos_abiertos_2024_0{}.csv'.format(tiempo), index_col=0))
+    year2024.append(pd.read_csv('./Datos/MiBici/datos_abiertos_2024_0{}.csv'.format(tiempo), index_col=0))
   
 #Concatenación de los Elementos de la Lista a un DataFrame
 datos_df=pd.concat(year2024) 
