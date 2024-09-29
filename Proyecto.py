@@ -118,8 +118,6 @@ datos_df=datos_df.dropna()
 #Creación de columnas con nuevos datos
 datos_df['inicio_del_viaje'] = pd.to_datetime(datos_df['inicio_del_viaje'])
 datos_df['fin_del_viaje'] = pd.to_datetime(datos_df['fin_del_viaje'])
-datos_df['hora_inicio'] = datos_df['inicio_del_viaje'].dt.hour
-datos_df['hora_fin'] = datos_df['fin_del_viaje'].dt.hour
 datos_df['tiempo_total'] = ((datos_df['fin_del_viaje'] - datos_df['inicio_del_viaje']).dt.total_seconds()/3600)
 
 #----- Renderizado del Texto --------------------------------------
