@@ -101,6 +101,27 @@ for tiempo in range(1, 8+1):
 #Concatenación de los Elementos de la Lista a un DataFrame
 datos_df=pd.concat(year2024) 
 
+#Tratamiento de los datos
+datos_df.rename(columns = {
+        'Usuario_Id': 'Usuario',
+        'Año_de_nacimiento': 'Año_nacimiento'
+    }, inplace = True)
+
+datos_df.columns = [col.lower() for col in df]
+
+#Eliminación de usuarios con años de nacimiento menores a 1940
+datos_df=datos_df[datos_df['año_nacimiento'] >= 1940]
+
+#Eliminación de valores nulos
+datos_df=datos_df.dropna()
+
+#Creación de columnas con nuevos datos
+datos_df['inicio_del_viaje'] = pd.to_datetime(datos_df['inicio_del_viaje'])
+datos_df['fin_del_viaje'] = pd.to_datetime(datos_df['fin_del_viaje'])
+datos_df['hora_inicio'] = datos_df['inicio_del_viaje'].dt.hour
+datos_df['hora_fin'] = datos_df['fin_del_viaje'].dt.hour
+datos_df['tiempo_total'] = ((datos_df['fin_del_viaje'] - datos_df['inicio_del_viaje']).dt.total_seconds()/3600)
+
 #----- Renderizado del Texto --------------------------------------
 st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE CLIENTES**]")
 st.markdown(":blue[Este **DataFrame** contiene información de varias personas, "
