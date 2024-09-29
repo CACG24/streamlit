@@ -28,9 +28,9 @@ Logo = io.imread(r"./Imagenes/ITESO_Logo.png")
 st.image(Logo, width = 500)
 
 #----- Renderizado del Texto --------------------------------------
-st.title("Uso Básico de Streamlit")
-st.subheader(":blue[Streamlit es un *framework* para la creación de aplicaciones web "
-             "interactivas y basadas en datos.]")
+st.title("Proyecto de programación para minería de datos")
+st.subheader(":blue[Se utilizaron datos de la plataforma oficial "
+              "de *mibici* para hacer un analisis de los mismos.]")
 
 
 #------------------------------------------------------------------
