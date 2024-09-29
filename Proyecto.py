@@ -33,7 +33,7 @@ st.title("Proyecto de programación para minería de datos")
 st.subheader(":blue[Se utilizaron datos de la plataforma oficial "
               "de *mibici* para hacer un analisis de los mismos.]")
 
-st.image(Logo_mibici, width = 50)
+st.image(Logo_mibici, width = 100)
 
 
 #------------------------------------------------------------------
