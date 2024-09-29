@@ -107,7 +107,7 @@ datos_df.rename(columns = {
         'Año_de_nacimiento': 'Año_nacimiento'
     }, inplace = True)
 
-datos_df.columns = [col.lower() for col in df]
+datos_df.columns = [col.lower() for col in datos_df]
 
 #Eliminación de usuarios con años de nacimiento menores a 1940
 datos_df=datos_df[datos_df['año_nacimiento'] >= 1940]
