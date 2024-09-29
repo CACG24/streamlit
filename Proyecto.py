@@ -26,7 +26,7 @@ Logo = io.imread(r"./Imagenes/ITESO_Logo.png")
 Logo_mibici = io.imread(r"./Imagenes/mibici.jpg")
 
 #----- Renderizado de la Imagen -----------------------------------
-st.image(Logo, width = 500)
+st.image(Logo, width = 50)
 
 #----- Renderizado del Texto --------------------------------------
 st.title("Proyecto de programación para minería de datos")
