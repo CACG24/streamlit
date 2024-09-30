@@ -109,14 +109,14 @@ datos_df.rename(columns = {
 
 datos_df.columns = [col.lower() for col in datos_df]
 
+#Eliminación de valores nulos
+datos_df=datos_df.dropna()
+
 #Años en enteros
 datos_df['año_nacimiento']=datos_df['año_nacimiento'].astype(int)
 
 #Eliminación de usuarios con años de nacimiento menores a 1940
 datos_df=datos_df[datos_df['año_nacimiento'] >= 1940]
-
-#Eliminación de valores nulos
-datos_df=datos_df.dropna()
 
 #Columnas en formato de fecha
 datos_df['inicio_del_viaje'] = pd.to_datetime(datos_df['inicio_del_viaje'])
