@@ -50,7 +50,7 @@ st.sidebar.divider()
 #----- HISTOGRAMA -------------------------------------------------
 #Variables
 vars_ejeX = ['Dia', 'Semana', 'Mes', 'Año']
-vars_semana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+vars_semana = ['NA', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
 vars_mes = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO']
 vars_ejeY = ['Cantidad', 'Duración', 'Edad']
 
@@ -72,6 +72,7 @@ st.sidebar.divider()
 #Caso especifico del eje Y
 default_histoY = vars_ejeY.index('Cantidad')
 histoY_selected = st.sidebar.selectbox('Elección del eje Y para el Histograma:', vars_ejeY, index = default_histoY)
+  
 
 #----- GRÁFICO DE LÍNEAS PARA LAS GANANCIAS -----------------------
 #----- Selector de las Personas -----------------------------------
@@ -168,7 +169,30 @@ st.subheader('Histograma')
 #Inicialización del gráfico
 fig1, ax1 = plt.subplots()
 
-#Generación del gráfico
-sns.set(style = "darkgrid")
-sns.histplot(data = datos_df['edad'])
+
+if histoX_selected=='Dia':
+  if subhistoX_selected=='NA':
+    if histoY_selected=='Cantidad':
+      data = data_df.groupby(data_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
+      plt.bar(data['inicio_del_viaje'], data['conteo_viajes'], color='blue')
+    elif histoY_selected=='Duración':
+      data = data_df.groupby(data_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
+      plt.bar(data['inicio_del_viaje'], (data['tiempo_total'].dt.total_seconds()/60).astype(int), color='blue')
+    else:
+      data = data_df.groupby(data_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      plt.bar(data['inicio_del_viaje'], data['edad'], color='blue')
+    plt.xticks(range(24))
+  else:
+    if histoY_selected=='Cantidad':
+      data = data_df[data_df['dia_semana']==subhistoX_selected].groupby(data_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
+      plt.bar(data['inicio_del_viaje'], data['conteo_viajes'], color='blue')
+    elif histoY_selected=='Duración':
+      data = data_df[data_df['dia_semana']==subhistoX_selected].groupby(data_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
+      plt.bar(data['inicio_del_viaje'], (data['tiempo_total'].dt.total_seconds()/60).astype(int), color='blue')
+    else:
+      data = data_df[data_df['dia_semana']==subhistoX_selected].groupby(data_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      plt.bar(data['inicio_del_viaje'], data['edad'], color='blue')
+    plt.xticks(range(24))
+
+st.pyplot(fig1)
 
