@@ -171,7 +171,4 @@ fig1, ax1 = plt.subplots()
 #Generación del gráfico
 sns.set(style = "darkgrid")
 sns.histplot(data = datos_df['edad'])
-ax1.set_title('Histograma de Valores')
-ax1.set_xlabel('edad')
-ax1.set_ylabel('Frecuencia')
 
