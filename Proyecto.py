@@ -173,24 +173,24 @@ fig1, ax1 = plt.subplots()
 if histoX_selected=='Dia':
   if subhistoX_selected=='NA':
     if histoY_selected=='Cantidad':
-      data = data_df.groupby(data_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
+      data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
       plt.bar(data['inicio_del_viaje'], data['conteo_viajes'], color='blue')
     elif histoY_selected=='Duración':
-      data = data_df.groupby(data_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
+      data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
       plt.bar(data['inicio_del_viaje'], (data['tiempo_total'].dt.total_seconds()/60).astype(int), color='blue')
     else:
-      data = data_df.groupby(data_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
       plt.bar(data['inicio_del_viaje'], data['edad'], color='blue')
     plt.xticks(range(24))
   else:
     if histoY_selected=='Cantidad':
-      data = data_df[data_df['dia_semana']==subhistoX_selected].groupby(data_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
+      data = datos_df[datos_df['dia_semana']==subhistoX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
       plt.bar(data['inicio_del_viaje'], data['conteo_viajes'], color='blue')
     elif histoY_selected=='Duración':
-      data = data_df[data_df['dia_semana']==subhistoX_selected].groupby(data_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
+      data = datos_df[datos_df['dia_semana']==subhistoX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
       plt.bar(data['inicio_del_viaje'], (data['tiempo_total'].dt.total_seconds()/60).astype(int), color='blue')
     else:
-      data = data_df[data_df['dia_semana']==subhistoX_selected].groupby(data_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      data = datos_df[datos_df['dia_semana']==subhistoX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
       plt.bar(data['inicio_del_viaje'], data['edad'], color='blue')
     plt.xticks(range(24))
 
