@@ -47,31 +47,33 @@ st.sidebar.image(Logo, width = 200)
 st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
 st.sidebar.divider()
 
-#----- HISTOGRAMA -------------------------------------------------
+#----- GRAFICA DE BARRAS ------------------------------------------
+st.sidebar.markdown("### Gráfica de barras")
 #Variables
-vars_ejeX = ['Dia', 'Semana', 'Mes', 'Año']
+vars_ejeX = ['Day', 'Week', 'Month', 'Year']
 vars_semana = ['NA', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-vars_mes = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO']
+vars_mes = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG']
 vars_ejeY = ['Cantidad', 'Duración', 'Edad']
 
 #Caso especifico del eje X
-default_histoX = vars_ejeX.index('Dia')
-histoX_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_histoX)
+default_barX = vars_ejeX.index('Day')
+barX_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_barX)
 
-if histoX_selected=='Dia':
-  default_subhistoX = vars_semana.index('NA')
-  subhistoX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_subhistoX)
-elif histoX_selected=='Mes':
-  default_subhistoX = vars_mes.index('ENE')
-  subhistoX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_subhistoX)
+if barX_selected=='Day':
+  default_subbarX = vars_semana.index('NA')
+  subbarX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_subbarX)
+elif barX_selected=='Month':
+  default_subbarX = vars_mes.index('JAN')
+  subbarX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_subbarX)
 else:
-  subhistoX_selected = histoX_selected
+  subbarX_selected = barX_selected
 
-st.sidebar.divider()
 
 #Caso especifico del eje Y
-default_histoY = vars_ejeY.index('Cantidad')
-histoY_selected = st.sidebar.selectbox('Elección del eje Y para el Histograma:', vars_ejeY, index = default_histoY)
+default_barY = vars_ejeY.index('Cantidad')
+barY_selected = st.sidebar.selectbox('Elección del eje Y para el Histograma:', vars_ejeY, index = default_barY)
+
+st.sidebar.divider()
   
 
 #----- GRÁFICO DE LÍNEAS PARA LAS GANANCIAS -----------------------
@@ -170,23 +172,23 @@ st.subheader('Histograma')
 fig1, ax1 = plt.subplots()
 
 
-if histoX_selected=='Dia':
-  if subhistoX_selected=='NA':
-    if histoY_selected=='Cantidad':
+if barX_selected=='Day':
+  if subbarX_selected=='NA':
+    if barY_selected=='Cantidad':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index()
-    elif histoY_selected=='Duración':
+    elif barY_selected=='Duración':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
     else:
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
   else:
-    if histoY_selected=='Cantidad':
-      data = datos_df[datos_df['dia_semana']==subhistoX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
-    elif histoY_selected=='Duración':
-      data = datos_df[datos_df['dia_semana']==subhistoX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
+    if barY_selected=='Cantidad':
+      data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
+    elif barY_selected=='Duración':
+      data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
     else:
-      data = datos_df[datos_df['dia_semana']==subhistoX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
     
 data.columns = ['x', 'y']
 plt.bar(data['x'], data['y'], color='blue')
