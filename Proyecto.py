@@ -101,6 +101,18 @@ for tiempo in range(1, 8+1):
 #Concatenación de los Elementos de la Lista a un DataFrame
 datos_df=pd.concat(year2024) 
 
+#----- Renderizado del Texto --------------------------------------
+st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE USUARIOS DE MiBici**]")
+st.markdown(":blue[Este **DataFrame** contiene información de todos los usuarios y "
+            "los viajes que realizaron durante 2024:]")
+
+#----- Renderizado del DataFrame ----------------------------------
+st.dataframe(datos_df.head(10))
+
+st.markdown(":blue[Este **DataFrame** fue tratado para eliminar datos inservibles y se "
+            "le agregaron nuevas columnas de datos útiles extraidos de la información "
+            "ya presente:]")
+
 #Tratamiento de los datos
 datos_df.rename(columns = {
         'Usuario_Id': 'Usuario',
@@ -127,11 +139,5 @@ datos_df['tiempo_total'] = datos_df['fin_del_viaje'] - datos_df['inicio_del_viaj
 datos_df['edad'] = 2024 - datos_df['año_nacimiento']
 datos_df['dia_semana'] = datos_df['inicio_del_viaje'].dt.day_name()
 
-#----- Renderizado del Texto --------------------------------------
-st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE USUARIOS DE MiBici**]")
-st.markdown(":blue[Este **DataFrame** contiene información de todos los usuarios y "
-            "los viajes que realizaron durante 2024:]")
-
-#----- Renderizado del DataFrame ----------------------------------
-st.dataframe(datos_df.head(10))
 st.divider()
+
