@@ -139,5 +139,6 @@ datos_df['tiempo_total'] = datos_df['fin_del_viaje'] - datos_df['inicio_del_viaj
 datos_df['edad'] = 2024 - datos_df['año_nacimiento']
 datos_df['dia_semana'] = datos_df['inicio_del_viaje'].dt.day_name()
 
+st.dataframe(datos_df.head(10))
 st.divider()
 
