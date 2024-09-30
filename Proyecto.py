@@ -47,23 +47,31 @@ st.sidebar.image(Logo, width = 200)
 st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
 st.sidebar.divider()
 
-#----- HISTOGRAMA POR MES -----------------------------------------
-#----- Selector del Mes -------------------------------------------
+#----- HISTOGRAMA -------------------------------------------------
+#Variables
 vars_ejeX = ['Dia', 'Semana', 'Mes', 'Año']
 vars_semana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
 vars_mes = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO']
-default_hist = vars_ejeX.index('Dia')
-histo_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_hist)
-st.sidebar.divider()
+vars_ejeY = ['Cantidad', 'Duración', 'Edad']
+
+#Caso especifico del eje X
+default_histoX = vars_ejeX.index('Dia')
+histoX_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_histoX)
 
 if histo_selected=='Dia':
-  default_histX = vars_semana.index('Lunes')
-  histX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_histX)
+  default_subhistoX = vars_semana.index('Lunes')
+  subhistoX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_subhistoX)
 elif histo_selected=='Mes':
-  default_histX = vars_mes.index('ENE')
-  histX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_histX)
+  default_subhistoX = vars_mes.index('ENE')
+  subhistoX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_subhistoX)
 else:
-  histX_selected = histo_selected
+  subhistoX_selected = histoX_selected
+
+st.sidebar.divider()
+
+#Caso especifico del eje Y
+default_histoY = vars_ejeY.index('Cantidad')
+histoY_selected = st.sidebar.selectbox('Elección del eje Y para el Histograma:', vars_ejeY, index = default_histoY)
 
 #----- GRÁFICO DE LÍNEAS PARA LAS GANANCIAS -----------------------
 #----- Selector de las Personas -----------------------------------
