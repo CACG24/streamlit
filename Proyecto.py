@@ -49,9 +49,11 @@ st.sidebar.divider()
 
 #----- HISTOGRAMA POR MES -----------------------------------------
 #----- Selector del Mes -------------------------------------------
+vars_ejeX = ['Dia', 'Semana', 'Mes', 'Año']
+vars_semana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
 vars_mes = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO']
-default_hist = vars_mes.index('ENE')
-histo_selected = st.sidebar.selectbox('Elección del Mes para el Histograma:', vars_mes, index = default_hist)
+default_hist = vars_ejeX.index('Dia')
+histo_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_hist)
 st.sidebar.divider()
 
 #----- GRÁFICO DE LÍNEAS PARA LAS GANANCIAS -----------------------
