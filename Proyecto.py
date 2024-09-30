@@ -50,7 +50,7 @@ st.sidebar.divider()
 #----- HISTOGRAMA -------------------------------------------------
 #Variables
 vars_ejeX = ['Dia', 'Semana', 'Mes', 'Año']
-vars_semana = ['NA', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+vars_semana = ['NA', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 vars_mes = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO']
 vars_ejeY = ['Cantidad', 'Duración', 'Edad']
 
@@ -59,7 +59,7 @@ default_histoX = vars_ejeX.index('Dia')
 histoX_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_histoX)
 
 if histoX_selected=='Dia':
-  default_subhistoX = vars_semana.index('Lunes')
+  default_subhistoX = vars_semana.index('NA')
   subhistoX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_subhistoX)
 elif histoX_selected=='Mes':
   default_subhistoX = vars_mes.index('ENE')
