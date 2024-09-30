@@ -56,6 +56,15 @@ default_hist = vars_ejeX.index('Dia')
 histo_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_hist)
 st.sidebar.divider()
 
+if histo_selected=='Dia':
+  default_histX = vars_semana.index('Lunes')
+  histX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_histX)
+elif histo_selected=='Mes':
+  default_histX = vars_mes.index('ENE')
+  histX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_histX)
+else:
+  histX_selected = histo_selected
+
 #----- GRÁFICO DE LÍNEAS PARA LAS GANANCIAS -----------------------
 #----- Selector de las Personas -----------------------------------
 vars_per = ['Iñaki González','María Cázares','José García','Jérémie Muñoz','Agnès Villalón','Bérénice Pitkämäki',
