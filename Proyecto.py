@@ -124,7 +124,8 @@ datos_df['fin_del_viaje'] = pd.to_datetime(datos_df['fin_del_viaje'])
 
 #Creación de columnas con nuevos datos
 datos_df['tiempo_total'] = datos_df['fin_del_viaje'] - datos_df['inicio_del_viaje']
-datos_df['edad'] = 2024-datos_df['año_nacimiento']
+datos_df['edad'] = 2024 - datos_df['año_nacimiento']
+datos_df['dia_semana'] = datos_df['inicio_del_viaje'].dt.day_name()
 
 #----- Renderizado del Texto --------------------------------------
 st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE CLIENTES**]")
