@@ -189,9 +189,20 @@ if barX_selected=='Day':
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
     else:
       data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
-    
+  plt.xticks(range(24))
+elif barX_selected=='Week':
+  if barY_selected=='Cantidad':
+    data = datos_df.groupby('dia_semana').size().reset_index()
+  elif barY_selected=='Duración':
+    data = datos_df.groupby('dia_semana')['tiempo_total'].mean().reset_index()
+    data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+  else:
+    data = datos_df.groupby('dia_semana')['edad'].mean().reset_index()
+  orden_dias = vars_semana[1:]
+  data['dia_semana'] = pd.Categorical(data['dia_semana'], categories=orden_dias, ordered=True)
+  data = data.sort_values('dia_semana')
+
 data.columns = ['x', 'y']
 plt.bar(data['x'], data['y'], color='blue')
-plt.xticks(range(24))
 st.pyplot(fig1)
 
