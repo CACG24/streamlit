@@ -58,10 +58,10 @@ vars_ejeY = ['Cantidad', 'Duración', 'Edad']
 default_histoX = vars_ejeX.index('Dia')
 histoX_selected = st.sidebar.selectbox('Elección del eje X para el Histograma:', vars_ejeX, index = default_histoX)
 
-if histo_selected=='Dia':
+if histoX_selected=='Dia':
   default_subhistoX = vars_semana.index('Lunes')
   subhistoX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_subhistoX)
-elif histo_selected=='Mes':
+elif histoX_selected=='Mes':
   default_subhistoX = vars_mes.index('ENE')
   subhistoX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_subhistoX)
 else:
