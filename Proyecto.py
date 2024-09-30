@@ -128,14 +128,9 @@ datos_df['edad'] = 2024 - datos_df['año_nacimiento']
 datos_df['dia_semana'] = datos_df['inicio_del_viaje'].dt.day_name()
 
 #----- Renderizado del Texto --------------------------------------
-st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE CLIENTES**]")
-st.markdown(":blue[Este **DataFrame** contiene información de varias personas, "
-            "las ciudades donde viven, así como sus ganancias a lo largo de un año. "
-            "En esta aplicación se generan los siguientes gráficos:]")
-st.markdown(":blue[*- **Histograma** para cada uno de los Meses del **DataFrame**.*]")
-st.markdown(":blue[*- **Ganancias** para cada persona del **DataFrame**.*]")
-st.markdown(":blue[*- **Matriz de Correlación** para los Meses Seleccionados del **DataFrame**.*]")
-st.markdown(":violet[El **DataFrame** es el siguiente:]")
+st.markdown(":violet[**DATAFRAME PARA EL MANEJO DE INFORMACIÓN DE USUARIOS DE MiBici**]")
+st.markdown(":blue[Este **DataFrame** contiene información de todos los usuarios y "
+            "los viajes que realizaron durante 2024:]")
 
 #----- Renderizado del DataFrame ----------------------------------
 st.dataframe(datos_df.head(10))
