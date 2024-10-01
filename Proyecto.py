@@ -172,8 +172,11 @@ st.subheader('Histograma')
 fig1, ax1 = plt.subplots()
 
 
+#Dia
 if barX_selected=='Day':
+  #Caso NA
   if subbarX_selected=='NA':
+    #Valores eje Y
     if barY_selected=='Cantidad':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index()
     elif barY_selected=='Duración':
@@ -181,7 +184,9 @@ if barX_selected=='Day':
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
     else:
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+  #Caso dias especificos
   else:
+    #Valores eje Y
     if barY_selected=='Cantidad':
       data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
     elif barY_selected=='Duración':
@@ -189,8 +194,13 @@ if barX_selected=='Day':
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
     else:
       data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+  
+  #Ajustes de gráfica
   plt.xticks(range(24))
+
+#Semanas
 elif barX_selected=='Week':
+  #Valores eje Y
   if barY_selected=='Cantidad':
     data = datos_df.groupby('dia_semana').size().reset_index()
   elif barY_selected=='Duración':
@@ -198,10 +208,13 @@ elif barX_selected=='Week':
     data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
   else:
     data = datos_df.groupby('dia_semana')['edad'].mean().reset_index()
+  
+  #Ajustes de gráfica
   orden_dias = vars_semana[1:]
   data['dia_semana'] = pd.Categorical(data['dia_semana'], categories=orden_dias, ordered=True)
   data = data.sort_values('dia_semana')
 
+#Gráfica
 data.columns = ['x', 'y']
 plt.bar(data['x'], data['y'], color='blue')
 st.pyplot(fig1)
