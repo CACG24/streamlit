@@ -194,7 +194,7 @@ if barX_selected=='Day':
   
   #Ajustes de gráfica
   plt.xlabel('Horas del día')
-  plt.xticks(range(24))
+  plt.xticks(range(24), fontsize=8)
 
 #Semanas
 elif barX_selected=='Week':
