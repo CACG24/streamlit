@@ -170,23 +170,30 @@ if barX_selected=='Day':
     #Valores eje Y
     if barY_selected=='Cantidad':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index()
+      plt.ylabel('Cantidad de viajes')
     elif barY_selected=='Duración':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+      plt.ylabel('Duración de viajes')
     else:
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      plt.ylabel('Edad de usuarios')
   #Caso dias especificos
   else:
     #Valores eje Y
     if barY_selected=='Cantidad':
       data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour).size().reset_index(name='conteo_viajes')
+      plt.ylabel('Cantidad de viajes')
     elif barY_selected=='Duración':
       data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['tiempo_total'].mean().reset_index()
-      data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
+      data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+      plt.ylabel('Duración de viajes')
     else:
       data = datos_df[datos_df['dia_semana']==subbarX_selected].groupby(datos_df['inicio_del_viaje'].dt.hour)['edad'].mean().reset_index()
+      plt.ylabel('Edad de usuarios')
   
   #Ajustes de gráfica
+  plt.xlabel('Horas del día')
   plt.xticks(range(24))
 
 #Semanas
@@ -194,13 +201,17 @@ elif barX_selected=='Week':
   #Valores eje Y
   if barY_selected=='Cantidad':
     data = datos_df.groupby('dia_semana').size().reset_index()
+    plt.ylabel('Cantidad de viajes')
   elif barY_selected=='Duración':
     data = datos_df.groupby('dia_semana')['tiempo_total'].mean().reset_index()
     data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+    plt.ylabel('Duración de viajes')
   else:
     data = datos_df.groupby('dia_semana')['edad'].mean().reset_index()
+    plt.ylabel('Edad de usuarios')
   
   #Ajustes de gráfica
+  plt.xlabel('Días de la semana')
   orden_dias = vars_semana[1:]
   data['dia_semana'] = pd.Categorical(data['dia_semana'], categories=orden_dias, ordered=True)
   data = data.sort_values('dia_semana')
@@ -212,23 +223,30 @@ if barX_selected=='Month':
     #Valores eje Y
     if barY_selected=='Cantidad':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index()
+      plt.ylabel('Cantidad de viajes')
     elif barY_selected=='Duración':
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+      plt.ylabel('Duración de viajes')
     else:
       data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
+      plt.ylabel('Edad de usuarios')
   #Caso dias especificos
   else:
     #Valores eje Y
     if barY_selected=='Cantidad':
       data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index(name='conteo_viajes')
+      plt.ylabel('Cantidad de viajes')
     elif barY_selected=='Duración':
       data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
-      data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
+      data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+      plt.ylabel('Duración de viajes')
     else:
       data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
+      plt.ylabel('Edad de usuarios')
   
   #Ajustes de gráfica
+  plt.xlabel('Días del mes')
   plt.xticks(range(1, 32), fontsize=8)
 
 #Año
@@ -236,17 +254,17 @@ elif barX_selected=='Year':
   #Valores eje Y
   if barY_selected=='Cantidad':
     data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month).size().reset_index()
-    plt.xlabel('Cantidad de viajes')
+    plt.ylabel('Cantidad de viajes')
   elif barY_selected=='Duración':
     data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month)['tiempo_total'].mean().reset_index()
     data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
-    plt.xlabel('Duración de viajes')
+    plt.ylabel('Duración de viajes')
   else:
     data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month)['edad'].mean().reset_index()
-    plt.xlabel('Edad de usuarios')
+    plt.ylabel('Edad de usuarios')
   
   #Ajustes de gráfica
-  plt.ylabel('Meses')
+  plt.xlabel('Meses')
 
 #Gráfica
 data.columns = ['x', 'y']
