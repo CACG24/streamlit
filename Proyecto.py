@@ -221,12 +221,12 @@ if barX_selected=='Month':
   else:
     #Valores eje Y
     if barY_selected=='Cantidad':
-      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+2)].groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index(name='conteo_viajes')
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index(name='conteo_viajes')
     elif barY_selected=='Duración':
-      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+2)].groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
     else:
-      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+2)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
   
   #Ajustes de gráfica
   plt.xticks(range(31))
