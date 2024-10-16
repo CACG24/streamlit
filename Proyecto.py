@@ -205,6 +205,32 @@ elif barX_selected=='Week':
   data['dia_semana'] = pd.Categorical(data['dia_semana'], categories=orden_dias, ordered=True)
   data = data.sort_values('dia_semana')
 
+#Mes
+if barX_selected=='Month':
+  #Caso NA
+  if subbarX_selected=='NA':
+    #Valores eje Y
+    if barY_selected=='Cantidad':
+      data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index()
+    elif barY_selected=='Duración':
+      data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
+      data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+    else:
+      data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
+  #Caso dias especificos
+  else:
+    #Valores eje Y
+    if barY_selected=='Cantidad':
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+1)].groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index(name='conteo_viajes')
+    elif barY_selected=='Duración':
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+1)].groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
+      data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
+    else:
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+1)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
+  
+  #Ajustes de gráfica
+  plt.xticks(range(24))
+
 #Gráfica
 data.columns = ['x', 'y']
 plt.bar(data['x'], data['y'], color='blue')
