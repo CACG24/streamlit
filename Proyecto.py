@@ -52,7 +52,7 @@ st.sidebar.markdown("### Gráfica de barras")
 #Variables
 vars_ejeX = ['Day', 'Week', 'Month', 'Year']
 vars_semana = ['NA', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-vars_mes = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG']
+vars_mes = ['NA', 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG']
 vars_ejeY = ['Cantidad', 'Duración', 'Edad']
 
 #Caso especifico del eje X
@@ -63,7 +63,7 @@ if barX_selected=='Day':
   default_subbarX = vars_semana.index('NA')
   subbarX_selected = st.sidebar.selectbox('Elección del día de la semana:', vars_semana, index = default_subbarX)
 elif barX_selected=='Month':
-  default_subbarX = vars_mes.index('JAN')
+  default_subbarX = vars_mes.index('NA')
   subbarX_selected = st.sidebar.selectbox('Elección del mes:', vars_mes, index = default_subbarX)
 else:
   subbarX_selected = barX_selected
@@ -221,15 +221,15 @@ if barX_selected=='Month':
   else:
     #Valores eje Y
     if barY_selected=='Cantidad':
-      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+1)].groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index(name='conteo_viajes')
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+2)].groupby(datos_df['inicio_del_viaje'].dt.day).size().reset_index(name='conteo_viajes')
     elif barY_selected=='Duración':
-      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+1)].groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+2)].groupby(datos_df['inicio_del_viaje'].dt.day)['tiempo_total'].mean().reset_index()
       data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)   
     else:
-      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+1)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
+      data = datos_df[datos_df['inicio_del_viaje'].dt.month==(vars_mes.index(subbarX_selected)+2)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
   
   #Ajustes de gráfica
-  plt.xticks(range(24))
+  plt.xticks(range(31))
 
 #Gráfica
 data.columns = ['x', 'y']
