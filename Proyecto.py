@@ -236,13 +236,17 @@ elif barX_selected=='Year':
   #Valores eje Y
   if barY_selected=='Cantidad':
     data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month).size().reset_index()
+    plt.xlabel('Cantidad de viajes')
   elif barY_selected=='Duración':
     data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month)['tiempo_total'].mean().reset_index()
     data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+    plt.xlabel('Duración de viajes')
   else:
     data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month)['edad'].mean().reset_index()
+    plt.xlabel('Edad de usuarios')
   
   #Ajustes de gráfica
+  plt.ylabel('Meses')
 
 #Gráfica
 data.columns = ['x', 'y']
