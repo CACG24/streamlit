@@ -229,7 +229,7 @@ if barX_selected=='Month':
       data = datos_df[datos_df['inicio_del_viaje'].dt.month==vars_mes.index(subbarX_selected)].groupby(datos_df['inicio_del_viaje'].dt.day)['edad'].mean().reset_index()
   
   #Ajustes de gráfica
-  plt.xticks(range(1, 32))
+  plt.xticks(range(1, 32), fontsize=8)
 
 #Gráfica
 data.columns = ['x', 'y']
