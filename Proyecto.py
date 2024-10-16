@@ -231,6 +231,19 @@ if barX_selected=='Month':
   #Ajustes de gráfica
   plt.xticks(range(1, 32), fontsize=8)
 
+#Año
+elif barX_selected=='Year':
+  #Valores eje Y
+  if barY_selected=='Cantidad':
+    data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month).size().reset_index()
+  elif barY_selected=='Duración':
+    data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month)['tiempo_total'].mean().reset_index()
+    data['tiempo_total']=(data['tiempo_total'].dt.total_seconds()/60).astype(int)
+  else:
+    data = datos_df.groupby(datos_df['inicio_del_viaje'].dt.month)['edad'].mean().reset_index()
+  
+  #Ajustes de gráfica
+
 #Gráfica
 data.columns = ['x', 'y']
 plt.bar(data['x'], data['y'], color='blue')
