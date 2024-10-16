@@ -147,6 +147,11 @@ for tiempo in range(1, 8+1):
 #Concatenación de los Elementos de la Lista a un DataFrame
 datos_df=pd.concat(year2024) 
 
+#Convertir las columnas a datetime
+datos_df['inicio_del_viaje'] = pd.to_datetime(datos_df['inicio_del_viaje'])
+datos_df['fin_del_viaje'] = pd.to_datetime(datos_df['fin_del_viaje'])
+datos_df['tiempo_total'] = pd.to_timedelta(datos_df['tiempo_total'])
+
 st.dataframe(datos_df.head(10))
 st.divider()
 
