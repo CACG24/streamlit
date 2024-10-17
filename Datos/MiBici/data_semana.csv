@@ -1,4 +1,4 @@
-,dia_semana,cantidad,cantidad_H,cantidad_F,duracion,duracion_M,duracion_F,edad,edad_M,edad_F,maproute,maproute_M,maproute_F,mapdis,mapdis_M,mapdis_F,velroute,velroute_M,velroute_F,veldis,veldis_M,veldis_F,tarifa,tarifa_M,tarifa_F
+,dia_semana,cantidad,cantidad_M,cantidad_F,duracion,duracion_M,duracion_F,edad,edad_M,edad_F,maproute,maproute_M,maproute_F,mapdis,mapdis_M,mapdis_F,velroute,velroute_M,velroute_F,veldis,veldis_M,veldis_F,tarifa,tarifa_M,tarifa_F
 0,Monday,453274,332633,120641,11.21,11.07,11.59,34.38,35.32,31.78,2193.33,2204.73,2161.89,1622.29,1630.88,1598.61,12.7,12.95,12.02,9.18,9.35,8.7,0.4,0.38,0.44
 1,Tuesday,494945,361694,133251,11.15,11.01,11.52,34.32,35.27,31.76,2194.54,2205.72,2164.21,1622.97,1631.06,1601.0,12.7,12.96,12.0,9.18,9.36,8.7,0.35,0.34,0.38
 2,Wednesday,487259,356308,130951,11.16,11.05,11.48,34.39,35.35,31.77,2192.95,2208.08,2151.79,1621.51,1632.53,1591.52,12.67,12.92,11.99,9.16,9.34,8.68,0.34,0.33,0.38
