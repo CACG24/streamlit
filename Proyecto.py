@@ -271,7 +271,7 @@ elif barX_selected=='Week':
     width = 0.4
     if barY_selected=='Cantidad':
       plt.bar(data_semana['dia_semana'], data_semana['cantidad_M'], width=width, color='blue')
-      plt.bar(data_semana['dia_semana'], data_semana['cantidad_F'], width=width, color='pink')
+      plt.bar(data_semana['dia_semana'], data_semana['cantidad_F'], width=width, align='edge', color='pink')
       plt.title('Cantidad de viajes por día y género')
       plt.ylabel('Cantidad de viajes')
       
