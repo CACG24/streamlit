@@ -569,6 +569,7 @@ st.pyplot(fig1)
   
 
 fig2, ax2 = plt.subplots()
+plt.figure(figsize=(12, 6))
 sns.barplot(data=estaciones_origen, x='inicio_del_viaje', y='cantidad_viajes', hue='origen_id', palette='viridis')
 plt.title('Uso de Principales Estaciones por Mes')
 plt.xlabel('Mes')
