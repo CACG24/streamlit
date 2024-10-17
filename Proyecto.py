@@ -461,9 +461,105 @@ elif barX_selected=='Month':
   #Configuración de las gráficas
   plt.xticks(range(32), fontsize=8)
   plt.xlabel('Día del mes')
+  
 #Año
 elif barX_selected=='Year':
-  plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
+  #M vs F
+  if opt_MF:
+    width = 0.4
+    if barY_selected=='Cantidad':
+      plt.bar(data_año['mes'], data_año['cantidad_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['cantidad_F'], width=width, align='edge', color='pink')
+      plt.title('Cantidad de viajes por mes y género')
+      plt.ylabel('Cantidad de viajes')
+      
+    elif barY_selected=='Duración':
+      plt.bar(data_año['mes'], data_año['duracion_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['duracion_F'], width=width, align='edge', color='pink')
+      plt.title('Duración de viajes por mes y género')
+      plt.ylabel('Duración de viajes')
+      
+    elif barY_selected=='Edad':
+      plt.bar(data_año['mes'], data_año['edad_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['edad_F'], width=width, align='edge', color='pink')
+      plt.title('Edad promedio por mes y género')
+      plt.ylabel('Edad promedio')
+      
+    elif barY_selected=='Distancia de ruta':
+      plt.bar(data_año['mes'], data_año['maproute_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['maproute_F'], width=width, align='edge', color='pink')
+      plt.title('Distancia de ruta por mes y género')
+      plt.ylabel('Distancia de ruta')
+
+    elif barY_selected=='Distancia geodesica':
+      plt.bar(data_año['mes'], data_año['mapdis_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['mapdis_F'], width=width, align='edge', color='pink')
+      plt.title('Distancia geodesica por mes y género')
+      plt.ylabel('Distancia geodesica')
+
+    elif barY_selected=='Velocidad de ruta':
+      plt.bar(data_año['mes'], data_año['velroute_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['velroute_F'], width=width, align='edge', color='pink')
+      plt.title('Velocidad de ruta por mes y género')
+      plt.ylabel('Velocidad de ruta')
+
+    elif barY_selected=='Velocidad geodesica':
+      plt.bar(data_año['mes'], data_año['veldis_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['veldis_F'], width=width, align='edge', color='pink')
+      plt.title('Velocidad geodesica por mes y género')
+      plt.ylabel('Velocidad geodesica')
+
+    else:
+      plt.bar(data_año['mes'], data_año['tarifa_M'], width=width, color='blue')
+      plt.bar(data_año['mes'], data_año['tarifa_F'], width=width, align='edge', color='pink')
+      plt.title('Tarifa promedio por mes y género')
+      plt.ylabel('Tarifa promedio')
+
+  #No M vs F
+  else:
+    if barY_selected=='Cantidad':
+      plt.bar(data_año['mes'], data_año['cantidad'], color='blue')
+      plt.title('Cantidad de viajes por mes')
+      plt.ylabel('Cantidad de viajes')
+      
+    elif barY_selected=='Duración':
+      plt.bar(data_año['mes'], data_año['duracion'], color='blue')
+      plt.title('Duración de viajes por mes')
+      plt.ylabel('Duración de viajes')
+      
+    elif barY_selected=='Edad':
+      plt.bar(data_año['mes'], data_año['edad'], color='blue')
+      plt.title('Edad promedio por mes')
+      plt.ylabel('Edad promedio')
+      
+    elif barY_selected=='Distancia de ruta':
+      plt.bar(data_año['mes'], data_año['maproute'], color='blue')
+      plt.title('Distancia de ruta por mes')
+      plt.ylabel('Distancia de ruta')
+
+    elif barY_selected=='Distancia geodesica':
+      plt.bar(data_año['mes'], data_año['mapdis'], color='blue')
+      plt.title('Distancia geodesica por mes')
+      plt.ylabel('Distancia geodesica')
+
+    elif barY_selected=='Velocidad de ruta':
+      plt.bar(data_año['mes'], data_año['velroute'], color='blue')
+      plt.title('Velocidad de ruta por mes')
+      plt.ylabel('Velocidad de ruta')
+
+    elif barY_selected=='Velocidad geodesica':
+      plt.bar(data_año['mes'], data_año['veldis'], color='blue')
+      plt.title('Velocidad geodesica por mes')
+      plt.ylabel('Velocidad geodesica')
+
+    else:
+      plt.bar(data_año['mes'], data_año['tarifa'], color='blue')
+      plt.title('Tarifa promedio por mes')
+      plt.ylabel('Tarifa promedio')
+      
+  #Configuración de las gráficas
+  plt.xticks(rotation=45, fontsize=8)
+  plt.xlabel('Mes')
   
 st.pyplot(fig1)
   
