@@ -577,8 +577,10 @@ plt.legend(title='Estación', loc='upper right')
 plt.grid(False)
 st.pyplot(fig3)
 
-st.divider()
+
 #Grafico de correlacion
+st.divider()
+st.subheader('Correlación')
 fig4, ax4 = plt.subplots()
 sns.scatterplot(data=datos_correlacion, x='edad', y='tiempo_total', alpha=0.6)
 plt.plot(datos_correlacion['edad'], np.polyval(np.polyfit(datos_correlacion['edad'], datos_correlacion['tiempo_total']*10, 1), datos_correlacion['edad']), color='red', label='Línea de Tendencia')
@@ -586,3 +588,12 @@ plt.title('Correlación entre Edad y Tiempo de Viaje', fontsize=16)
 plt.xlabel('Edad (años)', fontsize=14)
 plt.ylabel('Tiempo de Viaje (segundos)', fontsize=14)
 st.pyplot(fig4)
+
+#Grafico 2
+fig5, ax5 = plt.subplots()
+sns.barplot(data=data_semana, x='dia_semana', y='duracion', palette='viridis')
+plt.title('Correlación entre Día de la Semana y Tiempo de Viaje Promedio')
+plt.xlabel('Día de la Semana')
+plt.ylabel('Tiempo de Viaje Promedio (segundos)')
+plt.xticks(rotation=45)
+st.pyplot(fig5)
