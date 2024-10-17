@@ -173,61 +173,97 @@ if barX_selected=='Day':
     if barY_selected=='Cantidad':
       plt.bar(data_dia_M['horas']-width/2, data_dia_M['cantidad_{}'.format(subbarX_selected)], width=width, color='blue')
       plt.bar(data_dia_F['horas']+width/2, data_dia_F['cantidad_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Cantidad de viajes por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Cantidad de viajes')
       
     elif barY_selected=='Duración':
-      plt.bar(data_dia_M['horas'], data_dia_M['duracion_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['duracion_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['duracion_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['duracion_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Duración de viajes por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Duración de viajes')
       
     elif barY_selected=='Edad':
-      plt.bar(data_dia_M['horas'], data_dia_M['edad_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['edad_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['edad_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['edad_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Edad promedio por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Edad promedio')
       
     elif barY_selected=='Distancia de ruta':
-      plt.bar(data_dia_M['horas'], data_dia_M['maproute_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['maproute_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['maproute_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['maproute_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Distancia de ruta por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Distancia de ruta')
 
     elif barY_selected=='Distancia geodesica':
-      plt.bar(data_dia_M['horas'], data_dia_M['mapdis_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['mapdis_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['mapdis_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['mapdis_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Distancia geodesica por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Distancia geodesica')
 
     elif barY_selected=='Velocidad de ruta':
-      plt.bar(data_dia_M['horas'], data_dia_M['velroute_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['velroute_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['velroute_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['velroute_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Velocidad de ruta por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Velocidad de ruta')
 
     elif barY_selected=='Velocidad geodesica':
-      plt.bar(data_dia_M['horas'], data_dia_M['veldis_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['veldis_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['veldis_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['veldis_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Velocidad geodesica por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Velocidad geodesica de viajes')
 
     else:
-      plt.bar(data_dia_M['horas'], data_dia_M['tarifa_{}'.format(subbarX_selected)], color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['tarifa_{}'.format(subbarX_selected)], color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['tarifa_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['tarifa_{}'.format(subbarX_selected)], width=width, color='pink')
+      plt.title('Tarifa promedio por hora y género - {}'.format(subbarX_selected))
+      plt.ylabel('Tarifa promedio de viajes')
 
   #No M vs F
   else:
     if barY_selected=='Cantidad':
       plt.bar(data_dia_total['horas'], data_dia_total['cantidad_{}'.format(subbarX_selected)], color='blue')
+      plt.title('Cantidad de viajes por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Cantidad de viajes')
       
     elif barY_selected=='Duración':
       plt.bar(data_dia_total['horas'], data_dia_total['duracion_{}'.format(subbarX_selected)], color='blue')
+      plt.title('Duración de viajes por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Duración de viajes')
       
     elif barY_selected=='Edad':
       plt.bar(data_dia_total['horas'], data_dia_total['edad_{}'.format(subbarX_selected)], color='blue')
+      plt.title('Edad promedio por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Edad promedio')
       
     elif barY_selected=='Distancia de ruta':
       plt.bar(data_dia_total['horas'], data_dia_total['maproute_{}'.format(subbarX_selected)], color='blue')
+      plt.title('Distancia de ruta por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Distancia de ruta')
 
     elif barY_selected=='Distancia geodesica':
       plt.bar(data_dia_total['horas'], data_dia_total['mapdis_{}'.format(subbarX_selected)], color='blue')
+      lt.title('Distancia geodesica por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Distancia geodesica')
 
     elif barY_selected=='Velocidad de ruta':
       plt.bar(data_dia_total['horas'], data_dia_total['velroute_{}'.format(subbarX_selected)], color='blue')
+      plt.title('Velocidad de ruta por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Velocidad de ruta')
 
     elif barY_selected=='Velocidad geodesica':
       plt.bar(data_dia_total['horas'], data_dia_total['veldis_{}'.format(subbarX_selected)], color='blue')
+      plt.title('Velocidad geodesica por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Velocidad geodesica de viajes')
 
     else:
       plt.bar(data_dia_total['horas'], data_dia_total['tarifa_{}'.format(subbarX_selected)], color='blue')
-  plt.xticks(range(24))
+      plt.title('Tarifa promedio por hora - {}'.format(subbarX_selected))
+      plt.ylabel('Tarifa promedio de viajes')
+
+  #Configuración de las gráficas
+  plt.xticks(range(24), fontsize=8)
+  plt.xlabel('Hora del día')
+  
 #Semana
 elif barX_selected=='Week':
   plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
