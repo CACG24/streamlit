@@ -566,8 +566,10 @@ elif barX_selected=='Year':
   plt.xlabel('Mes')
   
 st.pyplot(fig1)
-  
+st.divider()
+
 #Gráfico de estaciones de origen
+st.subheader('Gráfica estaciones de origen más populares')
 fig2, ax2 = plt.subplots()
 sns.barplot(data=estaciones_origen, x='inicio_del_viaje', y='cantidad_viajes', hue='origen_id', palette='Set1')
 plt.title('Uso de Principales Estaciones por Mes')
@@ -579,6 +581,7 @@ plt.grid(False)
 st.pyplot(fig2)
 
 #Gráfico de estaciones de origen
+st.subheader('Gráfica estaciones de destino más populares')
 fig3, ax3 = plt.subplots()
 sns.barplot(data=estaciones_destino, x='inicio_del_viaje', y='cantidad_viajes', hue='destino_id', palette='Set1')
 plt.title('Uso de Principales Estaciones por Mes')
