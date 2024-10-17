@@ -169,9 +169,10 @@ fig1, ax1 = plt.subplots()
 if barX_selected=='Day':
   #M vs F
   if opt_MF:
+    width = 0.35
     if barY_selected=='Cantidad':
-      plt.bar(data_dia_M['horas'], data_dia_M['cantidad_{}'.format(subbarX_selected)], position=0,color='blue')
-      plt.bar(data_dia_F['horas'], data_dia_F['cantidad_{}'.format(subbarX_selected)], position=1,color='pink')
+      plt.bar(data_dia_M['horas']-width/2, data_dia_M['cantidad_{}'.format(subbarX_selected)], width=width, color='blue')
+      plt.bar(data_dia_F['horas']+width/2, data_dia_F['cantidad_{}'.format(subbarX_selected)], width=width, color='pink')
       
     elif barY_selected=='Duración':
       plt.bar(data_dia_M['horas'], data_dia_M['duracion_{}'.format(subbarX_selected)], color='blue')
