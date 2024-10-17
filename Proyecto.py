@@ -158,6 +158,10 @@ data_mes_F = pd.read_csv('./Datos/MiBici/data_mes_F.csv', index_col=0)
 #Datos de año
 data_año = pd.read_csv('./Datos/MiBici/data_año.csv', index_col=0)
 
+#Datos de estaciones
+estaciones_origen = pd.read_csv('./Datos/MiBici/estaciones_origen.csv', index_col=0)
+estaciones_destino = pd.read_csv('./Datos/MiBici/estaciones_destino.csv', index_col=0)
+
 #----- HISTOGRAMA -------------------------------------------------
 #Título para el gráfico
 st.subheader('Histograma')
@@ -564,4 +568,15 @@ elif barX_selected=='Year':
 st.pyplot(fig1)
   
 
+fig2, ax2 = plt.subplots()
+sns.barplot(data=estaciones_origen, x='inicio_del_viaje', y='cantidad_viajes', hue='origen_id', palette='viridis')
+plt.title('Uso de Principales Estaciones por Mes')
+plt.xlabel('Mes')
+plt.ylabel('Cantidad de Viajes')
+plt.xticks(rotation=45)
+plt.legend(title='Estación', loc='upper right')
+plt.grid(False)
+plt.tight_layout()
 
+# Mostrar la gráfica
+st.pyplot(fig2)
