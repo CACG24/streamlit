@@ -227,7 +227,7 @@ if barX_selected=='Day':
 
     else:
       plt.bar(data_dia_total['horas'], data_dia_total['tarifa_{}'.format(subbarX_selected)], color='blue')
-  plt.xticks(24)
+  plt.xticks(range(24))
 #Semana
 elif barX_selected=='Week':
   plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
