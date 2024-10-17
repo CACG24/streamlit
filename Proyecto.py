@@ -74,7 +74,7 @@ default_barY = vars_ejeY.index('Cantidad')
 barY_selected = st.sidebar.selectbox('Elección del eje Y para el Histograma:', vars_ejeY, index = default_barY)
 
 # Crear un interruptor
-opt_MF = st.checkbox('M vs F')
+opt_MF = st.sidebar.toggle('M vs F')
   
 st.sidebar.divider()
 
