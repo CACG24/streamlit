@@ -567,7 +567,7 @@ elif barX_selected=='Year':
   
 st.pyplot(fig1)
   
-
+#Gráfico de estaciones de origen
 fig2, ax2 = plt.subplots()
 sns.barplot(data=estaciones_origen, x='inicio_del_viaje', y='cantidad_viajes', hue='origen_id', palette='Set1')
 plt.title('Uso de Principales Estaciones por Mes')
@@ -576,7 +576,15 @@ plt.ylabel('Cantidad de Viajes')
 plt.xticks(rotation=45)
 plt.legend(title='Estación', loc='upper right')
 plt.grid(False)
-
-
-# Mostrar la gráfica
 st.pyplot(fig2)
+
+#Gráfico de estaciones de origen
+fig3, ax3 = plt.subplots()
+sns.barplot(data=estaciones_destino, x='inicio_del_viaje', y='cantidad_viajes', hue='destino_id', palette='Set1')
+plt.title('Uso de Principales Estaciones por Mes')
+plt.xlabel('Mes')
+plt.ylabel('Cantidad de Viajes')
+plt.xticks(rotation=45)
+plt.legend(title='Estación', loc='upper right')
+plt.grid(False)
+st.pyplot(fig3)
