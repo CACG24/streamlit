@@ -144,6 +144,9 @@ data_año = pd.read_csv('./Datos/MiBici/data_año.csv', index_col=0)
 estaciones_origen = pd.read_csv('./Datos/MiBici/estaciones_origen.csv', index_col=0)
 estaciones_destino = pd.read_csv('./Datos/MiBici/estaciones_destino.csv', index_col=0)
 
+#Correlacion
+datos_correlacion = pd.read_csv('./Datos/MiBici/correlacion_1.csv', index_col=0)
+
 #----- HISTOGRAMA -------------------------------------------------
 #Título para el gráfico
 st.subheader('Histograma')
@@ -573,3 +576,13 @@ plt.xticks(rotation=45)
 plt.legend(title='Estación', loc='upper right')
 plt.grid(False)
 st.pyplot(fig3)
+
+st.divider()
+#Grafico de correlacion
+fig4, ax4 = plt.subplots()
+sns.scatterplot(data=datos_correlacion, x='edad', y='tiempo_total', alpha=0.6)
+plt.plot(datos_correlacion['edad'], np.polyval(np.polyfit(datos_correlacion['edad'], datos_correlacion['tiempo_total']*10, 1), datos_correlacion['edad']), color='red', label='Línea de Tendencia')
+plt.title('Correlación entre Edad y Tiempo de Viaje', fontsize=16)
+plt.xlabel('Edad (años)', fontsize=14)
+plt.ylabel('Tiempo de Viaje (segundos)', fontsize=14)
+st.pyplot(fig4)
