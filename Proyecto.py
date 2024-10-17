@@ -288,7 +288,7 @@ elif barX_selected=='Week':
       plt.ylabel('Edad promedio')
       
     elif barY_selected=='Distancia de ruta':
-      plt.bar(data_semana['dia_semana'], data_semana['maproute_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana'], data_semana['maproute_M'], width=width, color='blue')
       plt.bar(data_semana['dia_semana'], data_semana['maproute_F'], width=width, align='edge', color='pink')
       plt.title('Distancia de ruta por día y género')
       plt.ylabel('Distancia de ruta')
