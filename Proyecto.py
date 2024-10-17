@@ -574,7 +574,7 @@ plt.title('Uso de Principales Estaciones por Mes')
 plt.xlabel('Mes')
 plt.ylabel('Cantidad de Viajes')
 plt.xticks(rotation=45)
-plt.legend(title='Estación', loc='upper right', labels=estaciones_origen['origen_id'].value_counts().nlargest(10).index)
+plt.legend(title='Estación', loc='upper right')
 plt.grid(False)
 
 
