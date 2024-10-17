@@ -1,4 +1,4 @@
-,mes,cantidad,cantidad_H,cantidad_F,duracion,duracion_M,duracion_F,edad,edad_M,edad_F,maproute,maproute_M,maproute_F,mapdis,mapdis_M,mapdis_F,velroute,velroute_M,velroute_F,veldis,veldis_M,veldis_F,tarifa,tarifa_M,tarifa_F
+,mes,cantidad,cantidad_M,cantidad_F,duracion,duracion_M,duracion_F,edad,edad_M,edad_F,maproute,maproute_M,maproute_F,mapdis,mapdis_M,mapdis_F,velroute,velroute_M,velroute_F,veldis,veldis_M,veldis_F,tarifa,tarifa_M,tarifa_F
 0,January,374672,277986,96686,11.58,11.45,11.96,34.71,35.57,32.26,2218.5,2232.37,2178.6,1641.85,1651.23,1614.9,12.59,12.85,11.85,9.11,9.28,8.6,0.45,0.45,0.47
 1,February,366907,270159,96748,11.54,11.39,11.96,34.33,35.22,31.85,2209.71,2225.05,2166.88,1635.01,1645.62,1605.37,12.55,12.82,11.8,9.08,9.27,8.56,0.4,0.38,0.44
 2,March,372895,273882,99013,11.49,11.32,11.94,34.29,35.21,31.74,2203.25,2217.5,2163.83,1630.01,1640.39,1601.31,12.58,12.85,11.84,9.1,9.29,8.57,0.38,0.36,0.45
