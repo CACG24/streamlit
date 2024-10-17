@@ -266,7 +266,103 @@ if barX_selected=='Day':
   
 #Semana
 elif barX_selected=='Week':
-  plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
+  #M vs F
+  if opt_MF:
+    width = 0.4
+    if barY_selected=='Cantidad':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['cantidad_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['cantidad_F'], width=width, color='pink')
+      plt.title('Cantidad de viajes por día y género)
+      plt.ylabel('Cantidad de viajes')
+      
+    elif barY_selected=='Duración':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['duracion_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['duracion_F'], width=width, color='pink')
+      plt.title('Duración de viajes por día y género)
+      plt.ylabel('Duración de viajes')
+      
+    elif barY_selected=='Edad':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['edad_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['edad_F'], width=width, color='pink')
+      plt.title('Edad promedio por día y género)
+      plt.ylabel('Edad promedio')
+      
+    elif barY_selected=='Distancia de ruta':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['maproute_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['maproute_F'], width=width, color='pink')
+      plt.title('Distancia de ruta por día y género)
+      plt.ylabel('Distancia de ruta')
+
+    elif barY_selected=='Distancia geodesica':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['mapdis_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['mapdis_F'], width=width, color='pink')
+      plt.title('Distancia geodesica por día y género)
+      plt.ylabel('Distancia geodesica')
+
+    elif barY_selected=='Velocidad de ruta':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['velroute_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['velroute_F'], width=width, color='pink')
+      plt.title('Velocidad de ruta por día y género)
+      plt.ylabel('Velocidad de ruta')
+
+    elif barY_selected=='Velocidad geodesica':
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['veldis_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['veldis_F'], width=width, color='pink')
+      plt.title('Velocidad geodesica por día y género)
+      plt.ylabel('Velocidad geodesica')
+
+    else:
+      plt.bar(data_semana['dia_semana']-width/2, data_semana['tarifa_H'], width=width, color='blue')
+      plt.bar(data_semana['dia_semana']+width/2, data_semana['tarifa_F'], width=width, color='pink')
+      plt.title('Tarifa promedio por día y género)
+      plt.ylabel('Tarifa promedio')
+
+  #No M vs F
+  else:
+    if barY_selected=='Cantidad':
+      plt.bar(data_semana['dia_semana'], data_semana['cantidad'], color='blue')
+      plt.title('Cantidad de viajes por día)
+      plt.ylabel('Cantidad de viajes')
+      
+    elif barY_selected=='Duración':
+      plt.bar(data_semana['dia_semana'], data_semana['duracion'], color='blue')
+      plt.title('Duración de viajes por día)
+      plt.ylabel('Duración de viajes')
+      
+    elif barY_selected=='Edad':
+      plt.bar(data_semana['dia_semana'], data_semana['edad'], color='blue')
+      plt.title('Edad promedio por día)
+      plt.ylabel('Edad promedio')
+      
+    elif barY_selected=='Distancia de ruta':
+      plt.bar(data_semana['dia_semana'], data_semana['maproute'], color='blue')
+      plt.title('Distancia de ruta por día)
+      plt.ylabel('Distancia de ruta')
+
+    elif barY_selected=='Distancia geodesica':
+      plt.bar(data_semana['dia_semana'], data_semana['mapdis'], color='blue')
+      plt.title('Distancia geodesica por día)
+      plt.ylabel('Distancia geodesica')
+
+    elif barY_selected=='Velocidad de ruta':
+      plt.bar(data_semana['dia_semana'], data_semana['velroute'], color='blue')
+      plt.title('Velocidad de ruta por día)
+      plt.ylabel('Velocidad de ruta')
+
+    elif barY_selected=='Velocidad geodesica':
+      plt.bar(data_semana['dia_semana'], data_semana['veldis'], color='blue')
+      plt.title('Velocidad geodesica por día)
+      plt.ylabel('Velocidad geodesica')
+
+    else:
+      plt.bar(data_semana['dia_semana'], data_semana['tarifa'], color='blue')
+      plt.title('Tarifa promedio por día)
+      plt.ylabel('Tarifa promedio')
+
+  #Configuración de las gráficas
+  plt.xticks(rotation=45, fontsize=8)
+  plt.xlabel('Día de la semana')
+  
 #Mes
 elif barX_selected=='Month':
   plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
