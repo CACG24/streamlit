@@ -229,13 +229,14 @@ if barX_selected=='Day':
 
 #Semana
 elif barX_selected=='Week':
-
+  plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
 #Mes
 elif barX_selected=='Month':
-
+  plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
 #Año
 elif barX_selected=='Year':
-
+  plt.bar(data_dia_total['horas'], data_dia_total['tarifa_NA'], color='blue')
+  
 st.pyplot(fig1)
   
 
