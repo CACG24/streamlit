@@ -610,11 +610,11 @@ st.divider()
 st.title('Clusterización')
 
 st.subheader('Histogramas')
-st.image(Grafica_histogramas, width = 500)
+st.image(Grafica_histogramas, width = 800)
 
 st.divider()
 st.subheader('Comparaciones dimensionales')
-st.image(Grafica_columnas, width = 500)
+st.image(Grafica_columnas, width = 800)
 
 st.divider()
 st.subheader('Dimensiones')
@@ -634,8 +634,8 @@ st.image(Grafica_2D3, width = 500)
 cluster_df = pd.read_csv('./Datos/MiBici/cluster_1.csv', index_col=0)
 
 copy = pd.DataFrame()
-copy['id'] = data_cluster.index.values
-copy['genero'] = data_cluster['genero'].values
+copy['id'] = cluster_df.index.values
+copy['genero'] = cluster_df['genero'].values
 copy['label'] = labels;
 cantidadGrupo =  pd.DataFrame()
 cantidadGrupo['color'] = ['rojo', 'verde', 'azul', 'cyan', 'amarillo']
