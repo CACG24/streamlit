@@ -25,13 +25,13 @@ from skimage import io
 #----- Lectura de Imagenes ----------------------------------------
 Logo = io.imread(r"./Imagenes/ITESO_Logo.png")
 Logo_mibici = io.imread(r"./Imagenes/mibici.jpg")
-Grafica_columnas = io.imread(r"./Imagenes/columnas.jpg")
-Grafica_histogramas = io.imread(r"./Imagenes/histogramas.jpg")
-Grafica_2D1 = io.imread(r"./Imagenes/grafico2D_1.jpg")
-Grafica_2D2 = io.imread(r"./Imagenes/grafico2D_2.jpg")
-Grafica_2D3 = io.imread(r"./Imagenes/grafico2D_3.jpg")
-Grafica_3D1 = io.imread(r"./Imagenes/grafico3D_1.jpg")
-Grafica_3D2 = io.imread(r"./Imagenes/grafico3D_2.jpg")
+Grafica_columnas = io.imread(r"./Imagenes/columnas.png")
+Grafica_histogramas = io.imread(r"./Imagenes/histogramas.png")
+Grafica_2D1 = io.imread(r"./Imagenes/grafico2D_1.png")
+Grafica_2D2 = io.imread(r"./Imagenes/grafico2D_2.png")
+Grafica_2D3 = io.imread(r"./Imagenes/grafico2D_3.png")
+Grafica_3D1 = io.imread(r"./Imagenes/grafico3D_1.png")
+Grafica_3D2 = io.imread(r"./Imagenes/grafico3D_2.png")
 
 #----- Renderizado de Imagen --------------------------------------
 st.image(Logo, width = 500)
@@ -629,3 +629,17 @@ st.subheader('Perfiles de clusters')
 st.image(Grafica_2D1, width = 500)
 st.image(Grafica_2D2, width = 500)
 st.image(Grafica_2D3, width = 500)
+
+#Datos de los clusters
+cluster_df = pd.read_csv('./Datos/MiBici/cluster_1.csv', index_col=0)
+
+copy = pd.DataFrame()
+copy['id'] = data_cluster.index.values
+copy['genero'] = data_cluster['genero'].values
+copy['label'] = labels;
+cantidadGrupo =  pd.DataFrame()
+cantidadGrupo['color'] = ['rojo', 'verde', 'azul', 'cyan', 'amarillo']
+cantidadGrupo['cantidad'] = copy.groupby('label').size()
+cantidadGrupo['porcentaje'] = round(cantidadGrupo['cantidad']/cantidadGrupo['cantidad'].sum()*100, 4)
+
+st.dataframe(cantidadGrupo)
