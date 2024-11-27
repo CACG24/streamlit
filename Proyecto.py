@@ -633,13 +633,5 @@ st.image(Grafica_2D3, width = 500)
 #Datos de los clusters
 cluster_df = pd.read_csv('./Datos/MiBici/cluster_1.csv', index_col=0)
 
-copy = pd.DataFrame()
-copy['id'] = cluster_df.index.values
-copy['genero'] = cluster_df['genero'].values
-copy['label'] = labels;
-cantidadGrupo =  pd.DataFrame()
-cantidadGrupo['color'] = ['rojo', 'verde', 'azul', 'cyan', 'amarillo']
-cantidadGrupo['cantidad'] = copy.groupby('label').size()
-cantidadGrupo['porcentaje'] = round(cantidadGrupo['cantidad']/cantidadGrupo['cantidad'].sum()*100, 4)
 
-st.dataframe(cantidadGrupo)
+#st.dataframe(cantidadGrupo)
