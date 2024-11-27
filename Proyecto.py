@@ -25,6 +25,13 @@ from skimage import io
 #----- Lectura de Imagenes ----------------------------------------
 Logo = io.imread(r"./Imagenes/ITESO_Logo.png")
 Logo_mibici = io.imread(r"./Imagenes/mibici.jpg")
+Grafica_columnas = io.imread(r"./Imagenes/columnas.jpg")
+Grafica_histogramas = io.imread(r"./Imagenes/histogramas.jpg")
+Grafica_2D1 = io.imread(r"./Imagenes/grafico2D_1.jpg")
+Grafica_2D2 = io.imread(r"./Imagenes/grafico2D_2.jpg")
+Grafica_2D3 = io.imread(r"./Imagenes/grafico2D_3.jpg")
+Grafica_3D1 = io.imread(r"./Imagenes/grafico3D_1.jpg")
+Grafica_3D2 = io.imread(r"./Imagenes/grafico3D_2.jpg")
 
 #----- Renderizado de Imagen --------------------------------------
 st.image(Logo, width = 500)
@@ -597,3 +604,28 @@ plt.xlabel('Día de la Semana')
 plt.ylabel('Tiempo de Viaje Promedio (segundos)')
 plt.xticks(rotation=45)
 st.pyplot(fig5)
+
+#Clusterización
+st.divider()
+st.title('Clusterización')
+
+st.subheader('Histogramas')
+st.image(Grafica_histogramas, width = 500)
+
+st.divider()
+st.subheader('Comparaciones dimensionales')
+st.image(Grafica_columnas, width = 500)
+
+st.divider()
+st.subheader('Dimensiones')
+st.image(Grafica_3D1, width = 500)
+
+st.divider()
+st.subheader('Clusters')
+st.image(Grafica_3D2, width = 500)
+
+st.divider()
+st.subheader('Perfiles de clusters')
+st.image(Grafica_2D1, width = 500)
+st.image(Grafica_2D2, width = 500)
+st.image(Grafica_2D3, width = 500)
