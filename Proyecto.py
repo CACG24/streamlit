@@ -632,4 +632,4 @@ st.image(Grafica_2D3, width = 500)
 
 #Datos de los clusters
 cantidadGrupo = pd.read_csv('./Datos/MiBici/cantidadGrupo.csv', index_col=0)
-st.dataframe(cantidadGrupo)
+st.dataframe(cantidadGrupo.head(10))
